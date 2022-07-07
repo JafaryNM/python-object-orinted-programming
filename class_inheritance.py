@@ -33,10 +33,30 @@ class Item:
         return f"Item('{self.name},{self.price}, {self.quantity}')"
         
 
-item1=Item("Phone",100, 1)
-item2=Item("Laptop",1000,3)
-item3=Item("Cable", 10, 5)
-item4=Item("Mouse", 50,5)
-item5=Item("Keyboard",75,5)
+class Phone(Item):
+    
+    all=[]
+    
+    
+     # Instantiation Of An Object
+     
+    def __init__(self, name:str,price:float,broken_phone=0,quantity=0):
+        
+    # Call Super Method To Have Access To All Attributies And Method
+       super().__init__(
+           name, 
+           price,
+           quantity
+       )
+    
+    
+       self.broken_phone=broken_phone
+    # Action Should Be Excuted
+    
+       Phone.all.append(self)
 
-print(Item.all)
+phone1=Phone("nokia",100, 1,7)
+phone2=Phone("Sumsang", 790, 2,8)
+
+
+print(phone1.calculate_price())
