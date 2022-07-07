@@ -1,5 +1,9 @@
 class Item:
     
+    ############ CLASS ATTRIBUTIES #################
+     
+    pay_rate=0.8
+    
     def __init__(self, name:str,price:float,quantity=0):
         
     ## Constractor Methods is called when object is created
@@ -31,14 +35,10 @@ class Item:
 
 
 item1=Item('Laptop',300,3)
-item2=Item('Phone',90,-3)
+item2=Item('Phone',90,2)
 item2.has_numpad=False
 
-print(item1.name)
-print(item2.name)
-print(item1.calculate_price())
-print(item2.calculate_price())
-
+print (item1.pay_rate)
 
 
 
