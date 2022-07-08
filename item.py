@@ -8,10 +8,19 @@ class Item:
     
     # Initialize Object Using Constractor
     def __init__(self, name:str,price:float,quantity=0):
-        self.name=name
+        self.__name=name  # Prevent access of attribute outside class
         self.price=price
         self.quantity=quantity
         
+    # Appling Ready Only Decorator
+    # Propery decorator== Ready Only Attributies
+    
+    @property
+    def name(self):
+        
+        return self.__name
+    
+       
     # Action To Excute 
      
         Item.all.append(self)
@@ -38,8 +47,11 @@ class Item:
             items=list(reader)
         for item in items:
             print(item)
+    
+    @property
+    def read_only_name(self):
         
-        
+        return "AAA"
     # Method To show Representable Way
     
     def __repr__(self):
