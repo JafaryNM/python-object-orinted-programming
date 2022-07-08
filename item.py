@@ -7,18 +7,38 @@ class Item:
     all=[]
     
     # Initialize Object Using Constractor
-    def __init__(self, name:str,price:float,quantity=0):
+    def __init__(self, name:str,__price:float,quantity=0):
         self.__name=name  # Prevent access of attribute outside class
-        self.price=price
+        self.__price=__price
         self.quantity=quantity
         
     # Appling Ready Only Decorator
     # Propery decorator== Ready Only Attributies
     
     @property
+     
+    def price(self):
+        
+        return self.__price
+    
+    def calculate_price(self):
+        
+        return self.__price * self.quantity
+    
+    def apply_increment(self, increment_value):
+        
+        self.__price= self.__price + self.__price *increment_value
+        
+    
+        
+    
+    
+    
+    @property
     def name(self):
         
         return self.__name
+    
     
     @name.setter
     
@@ -32,17 +52,14 @@ class Item:
         Item.all.append(self)
     
     
-    # Method to calculate price
+    # Method to calculate __price
       
-    def calculate_price(self):
-        
-        return self.price * self.quantity
     
     # Method To Calculate Discount
     def  calculate_discount(self):
         
         
-        self.price= self.price* self.pay_rate
+        self.__price= self.__price* self.pay_rate
      
     # Class Method In Action
         
@@ -62,4 +79,4 @@ class Item:
     
     def __repr__(self):
         
-        return f"Item('{self.name},{self.price}, {self.quantity}')"
+        return f"Item('{self.name},{self.__price}, {self.quantity}')"
