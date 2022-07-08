@@ -1,3 +1,6 @@
+
+import csv
+
 class Item:
     
     pay_rate=0.8
@@ -25,39 +28,20 @@ class Item:
         
         
         self.price= self.price* self.pay_rate
+     
+    # Class Method In Action
+        
+    @classmethod
+    def instatiation_csv(cls):
+        with open('items.csv', 'r') as f:
+            reader=csv.DictReader(f)
+            items=list(reader)
+        for item in items:
+            print(item)
+        
         
     # Method To show Representable Way
     
     def __repr__(self):
         
         return f"Item('{self.name},{self.price}, {self.quantity}')"
-        
-
-class Phone(Item):
-    
-    all=[]
-    
-    
-     # Instantiation Of An Object
-     
-    def __init__(self, name:str,price:float,broken_phone=0,quantity=0):
-        
-        
-    # Call Super Method To Have Access To All Attributies And Method
-       super().__init__(
-           name, 
-           price,
-           quantity
-       )
-    
-    
-       self.broken_phone=broken_phone
-    # Action Should Be Excuted
-    
-       Phone.all.append(self)
-
-phone1=Phone("nokia",100, 1,7)
-phone2=Phone("Sumsang", 790, 2,8)
-
-
-print(phone1.calculate_price())
